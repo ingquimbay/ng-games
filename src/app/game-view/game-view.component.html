@@ -5,10 +5,11 @@
   <div><strong>publisher:</strong> {{game.publisher}}</div>
   <div><strong>platform:</strong> {{game.platform}}</div>
   <div><strong>genre:</strong> {{game.genre}}</div>
+  <div><strong>esrb rating:</strong> {{game.esrb_rating}}</div>
   <div><strong>Description:</strong> {{game.description}}</div>
-  <div><strong>gameImage:</strong> {{game.gameImage}}</div>
+  <div><strong>game image:</strong> {{game.gameImage}}</div>
   <div><strong>website:</strong> {{game.website}}</div>
   <br>
-  <button>Edit</button>
+  <button [routerLink]="['/games/edit/', game._id]">Edit</button>
   <button>Delete</button>
 </div>

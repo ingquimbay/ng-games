@@ -1,8 +1,10 @@
-<h1>Create a New Game</h1>
+<h1 *ngIf="game">Edit {{game.gameName}} </h1>
 
-<form (ngSubmit)="onSubmit()" #createGame="ngForm">
-
+<form *ngIf="game" (ngSubmit)="onSubmit()" #editGame="ngForm">
+  
   <div *ngIf="errorMessage">{{errorMessage}}</div>
+
+  <input [(ngModel)]="game._id" type="hidden" name="_id" id="_id">
 
   <div>
     <label for="gameName">game name</label>
@@ -13,46 +15,55 @@
   <div>
     <label for="developer">developer</label>
     <input [(ngModel)]="game.developer" type="text" name="developer" id="developer">
+    <div *ngIf="errors.developer">{{errors.developer.message}}</div>
   </div>
 
   <div>
     <label for="publisher">publisher</label>
     <input [(ngModel)]="game.publisher" type="text" name="publisher" name="publisher" id="first_name">
+    <div *ngIf="errors.publisher">{{errors.publisher.message}}</div>
   </div>
 
   <div>
     <label for="platform">platform</label>
     <input [(ngModel)]="game.platform" type="text" name="platform" id="platform">
+    <div *ngIf="errors.platform">{{errors.platform.message}}</div>
   </div>
 
   <div>
     <label for="released">released</label>
     <input [(ngModel)]="game.released" type="text" name="released" id="released" placeholder="YYYY-MM-DD">
+    <div *ngIf="errors.released">{{errors.released.message}}</div>
   </div>
 
   <div>
     <label for="genre">genre</label>
     <input [(ngModel)]="game.genre" type="text" name="genre" id="genre">
+    <div *ngIf="errors.genre">{{errors.genre.message}}</div>
   </div>
 
   <div>
     <label for="description">description</label>
     <textarea [(ngModel)]="game.description" type="text" name="description" id="description"></textarea>
+    <div *ngIf="errors.description">{{errors.description.message}}</div>
   </div>
 
   <div>
-    <label for="esrb_rating">esrb rating</label>
+    <label for="esrb_rating">esrb_rating</label>
     <input [(ngModel)]="game.esrb_rating" type="text" name="esrb_rating" id="esrb_rating">
+    <div *ngIf="errors.esrb_rating">{{errors.esrb_rating.message}}</div>
   </div>
 
   <div>
     <label for="website">website</label>
-    <input [(ngModel)]="game.website" type="text" name="website" id="website" placeholder="url">
+    <input [(ngModel)]="game.website" type="text" name="website" id="website">
+    <div *ngIf="errors.website">{{errors.website.message}}</div>
   </div>
 
   <div>
     <label for="gameImage">game image</label>
-    <input [(ngModel)]="game.gameImage" type="text" name="gameImage" id="gameImage" placeholder="image url">
+    <input [(ngModel)]="game.gameImage" type="text" name="gameImage" id="gameImage">
+    <div *ngIf="errors.gameImage">{{errors.gameImage.message}}</div>
   </div>
   
   <button type="submit">Submit</button>

@@ -9,13 +9,15 @@ import { GamesComponent } from './games/games.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GameViewComponent } from './game-view/game-view.component';
 import { GameCreateComponent } from './game-create/game-create.component';
+import { GameEditComponent } from './game-edit/game-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GamesComponent,
     GameViewComponent,
-    GameCreateComponent
+    GameCreateComponent,
+    GameEditComponent
   ],
   imports: [
     BrowserModule,
