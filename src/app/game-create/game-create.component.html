@@ -1,1 +1,60 @@
-<p>game-create works!</p>
+<h1>Create a New Game</h1>
+
+<form (ngSubmit)="onSubmit()" #createGame="ngForm">
+
+  <div *ngIf="errorMessage">{{errorMessage}}</div>
+
+  <div>
+    <label for="gameName">game name</label>
+    <input [(ngModel)]="game.gameName" type="text" name="gameName" id="gameName">
+    <div *ngIf="errors.gameName">{{errors.gameName.message}}</div>
+  </div>
+
+  <div>
+    <label for="developer">developer</label>
+    <input [(ngModel)]="game.developer" type="text" name="developer" id="developer">
+  </div>
+
+  <div>
+    <label for="publisher">publisher</label>
+    <input [(ngModel)]="game.publisher" type="text" name="publisher" name="publisher" id="first_name">
+  </div>
+
+  <div>
+    <label for="platform">platform</label>
+    <input [(ngModel)]="game.platform" type="text" name="platform" id="platform">
+  </div>
+
+  <div>
+    <label for="released">released</label>
+    <input [(ngModel)]="game.released" type="text" name="released" id="released" placeholder="YYYY-MM-DD">
+  </div>
+
+  <div>
+    <label for="genre">genre</label>
+    <input [(ngModel)]="game.genre" type="text" name="genre" id="genre">
+  </div>
+
+  <div>
+    <label for="description">description</label>
+    <textarea [(ngModel)]="game.description" type="text" name="description" id="description"></textarea>
+  </div>
+
+  <div>
+    <label for="esrb_rating">esrb_rating</label>
+    <input [(ngModel)]="game.esrb_rating" type="text" name="esrb_rating" id="esrb_rating">
+  </div>
+
+  <div>
+    <label for="website">website</label>
+    <input [(ngModel)]="game.website" type="text" name="website" id="website">
+  </div>
+
+  <div>
+    <label for="gameImage">game image</label>
+    <input [(ngModel)]="game.gameImage" type="text" name="gameImage" id="gameImage">
+  </div>
+  
+  <button type="submit">Submit</button>
+
+</form>

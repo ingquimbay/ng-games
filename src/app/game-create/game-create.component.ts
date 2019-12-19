@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from "@angular/router";
+
+import { GamesService } from "../games.service";
+import { Game } from "../game";
 
 @Component({
   selector: 'app-game-create',
@@ -7,9 +12,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameCreateComponent implements OnInit {
 
-  constructor() { }
+  game = new Game();
+  errors: Array<any> = [];
+  errorMessage: string;
 
-  ngOnInit() {
+  constructor(
+    private gamesService: GamesService,
+    private router: Router
+  ) { }
+
+  ngOnInit(): void {
   }
 
+  response(response): void {
+    if (response.success === false) {
+      this.errors = response.error.errors;
+      this.errorMessage = response.error.message;
+    }
+    if (response.success === true) {
+      this.router.navigate(['/games/view/', response.game._id]);
+    }
+  }
+
+  onSubmit(): void {
+    this.gamesService.createGame(this.game).subscribe((response) => { this.response(response) });
+  }
 }
