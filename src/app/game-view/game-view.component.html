@@ -10,6 +10,7 @@
   <div><strong>game image:</strong> {{game.gameImage}}</div>
   <div><strong>website:</strong> {{game.website}}</div>
   <br>
-  <button [routerLink]="['/games/edit/', game._id]">Edit</button>
-  <button (click)="deleteGame(game._id)">Delete</button>
+  <button [routerLink]="['/games']" type="button" class="btn btn-light">done</button>
+  <button [routerLink]="['/games/edit/', game._id]" type="button" class="btn btn-light">edit</button>
+  <button (click)="deleteGame(game._id)" type="button" class="btn btn-danger">delete</button>
 </div>
