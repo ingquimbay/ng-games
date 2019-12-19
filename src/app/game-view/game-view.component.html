@@ -7,8 +7,9 @@
   <div><strong>genre:</strong> {{game.genre}}</div>
   <div><strong>esrb rating:</strong> {{game.esrb_rating}}</div>
   <div><strong>Description:</strong> {{game.description}}</div>
-  <div><strong>game image:</strong> {{game.gameImage}}</div>
-  <div><strong>website:</strong> {{game.website}}</div>
+  <div><strong>game image:</strong> </div>
+  <img [src]="game.gameImage" [alt]="game.title" width="800" height="600">
+  <div><strong>website:</strong> <a href="{{game.website}}" target="_blank"> {{game.website}}</a></div>
   <br>
   <button [routerLink]="['/games']" type="button" class="btn btn-light">done</button>
   <button [routerLink]="['/games/edit/', game._id]" type="button" class="btn btn-light">edit</button>
