@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { GamesService } from "../games.service";
 import { Game } from "../game";
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-game-view',
   templateUrl: './game-view.component.html',
@@ -15,6 +17,7 @@ export class GameViewComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private gamesService: GamesService
   ) { }
 
@@ -25,6 +28,12 @@ export class GameViewComponent implements OnInit {
 
   getGame(id): void {
     this.gamesService.getGame(id).subscribe((response: any) => { this.game = response.game });
+  }
+
+  deleteGame(id: string): void {
+    if (confirm("are you sure you want to delete " + this.game.gameName)) {
+      this.gamesService.deleteGame(id).subscribe(() => { this.router.navigate(['/games']) });
+    }
   }
 
 }

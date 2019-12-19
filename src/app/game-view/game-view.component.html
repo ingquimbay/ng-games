@@ -11,5 +11,5 @@
   <div><strong>website:</strong> {{game.website}}</div>
   <br>
   <button [routerLink]="['/games/edit/', game._id]">Edit</button>
-  <button>Delete</button>
+  <button (click)="deleteGame(game._id)">Delete</button>
 </div>
