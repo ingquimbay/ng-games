@@ -8,4 +8,6 @@ export class Game {
     publisher: string;
     genre: string;
     esrb_rating: string;
+    gameImage: string;
+    website: string;
 }
