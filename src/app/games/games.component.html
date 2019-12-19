@@ -1,1 +1,6 @@
-<p>games works!</p>
+<h1>games</h1>
+<ul *ngIf="games">
+  <li *ngFor="let game of games">
+    <a>{{game.gameName}}</a>
+  </li>
+</ul>
