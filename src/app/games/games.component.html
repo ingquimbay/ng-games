@@ -1,6 +1,6 @@
 <h1>games</h1>
 <ul *ngIf="games">
   <li *ngFor="let game of games">
-    <a>{{game.gameName}}</a>
+    <a [routerLink]="['/games/view/', game._id]">{{game.gameName}}</a>
   </li>
 </ul>
