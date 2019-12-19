@@ -14,7 +14,12 @@ export class GamesService {
 
   private url: string = 'http://localhost:3000/api/games';
   constructor(private http: HttpClient) { }
+
   getGames(): Observable<Game[]> {
     return this.http.get<Game[]>(this.url);
+  }
+
+  getGame(id: string): Observable<Game> {
+    return this.http.get<Game>(`${this.url}/${id}`);
   }
 }

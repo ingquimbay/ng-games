@@ -1,1 +1,12 @@
-<p>game-view works!</p>
+<div *ngIf="game">
+  <h1>{{game.gameName}}</h1>
+  <div><strong>released:</strong> {{game.released}}</div>
+  <div><strong>developer:</strong> {{game.developer}}</div>
+  <div><strong>publisher:</strong> {{game.publisher}}</div>
+  <div><strong>platform:</strong> {{game.platform}}</div>
+  <div><strong>genre:</strong> {{game.genre}}</div>
+  <div><strong>Description:</strong> {{game.description}}</div>
+  <br>
+  <button>Edit</button>
+  <button>Delete</button>
+</div>
